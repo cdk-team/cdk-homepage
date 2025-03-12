@@ -490,7 +490,7 @@ export default function Home() {
                       </div>
                       <div className="flex">
                         <span className="text-blue-400 mr-2">$</span>
-                        <span className="typing-animation">./cdk run cap-container-escape</span>
+                        <span className="typing-animation">./cdk run shim-pwn</span>
                       </div>
                     </div>
                   </div>
@@ -572,6 +572,7 @@ export default function Home() {
           </div>
         </section>
 
+      
         <section id="architecture" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -586,41 +587,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mx-auto max-w-4xl mt-8 bg-white p-6 rounded-lg shadow-sm">
-              <div className="mermaid-container">
-                {/* This div will be replaced by the Mermaid diagram */}
-                <div className="text-center text-sm text-muted-foreground">
-                  {`graph TD
-        A["CDK Tool"] --> B["Container Analysis"]
-        A --> C["Kubernetes Analysis"]
-        A --> D["Exploit Modules"]
-        
-        B --> E["Docker Runtime"]
-        B --> F["containerd"]
-        B --> G["CRI-O"]
-        
-        C --> H["API Server"]
-        C --> I["etcd"]
-        C --> J["kubelet"]
-        
-        D --> K["Container Escape"]
-        D --> L["Privilege Escalation"]
-        D --> M["Lateral Movement"]
-        
-        E --> N["Host System"]
-        F --> N
-        G --> N
-        
-        H --> O["Kubernetes Cluster"]
-        I --> O
-        J --> O
-        
-        K --> P["Security Impact"]
-        L --> P
-        M --> P`}
-                </div>
-              </div>
-            </div>
+
           </div>
         </section>
 
@@ -718,39 +685,6 @@ export default function Home() {
                     </CardFooter>
                   </Card>
                 </TabsContent>
-                <TabsContent value="docker" className="mt-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>{t.installation.docker.title}</CardTitle>
-                      <CardDescription>{t.installation.docker.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="bg-black rounded-md p-4 text-green-400 font-mono text-sm">
-                        <div className="flex">
-                          <span className="text-blue-400 mr-2">$</span>
-                          <span>docker pull cdkteam/cdk</span>
-                        </div>
-                        <div className="flex mt-2">
-                          <span className="text-blue-400 mr-2">$</span>
-                          <span>docker run -it --rm cdkteam/cdk</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Link
-                        href="https://hub.docker.com/r/cdkteam/cdk"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full"
-                      >
-                        <Button variant="outline" className="w-full">
-                          <ExternalLink className="mr-2 h-4 w-4" />
-                          {t.installation.docker.viewDocker}
-                        </Button>
-                      </Link>
-                    </CardFooter>
-                  </Card>
-                </TabsContent>
               </Tabs>
             </div>
           </div>
@@ -814,15 +748,10 @@ export default function Home() {
 
                     <div className="flex mt-4">
                       <span className="text-blue-400 mr-2">$</span>
-                      <span>./cdk run cap-container-escape</span>
+                      <span>./cdk run shim-pwn</span>
                     </div>
                     <div className="mt-2 text-gray-400"># Exploit container capabilities to escape</div>
 
-                    <div className="flex mt-4">
-                      <span className="text-blue-400 mr-2">$</span>
-                      <span>./cdk run docker-sock-check</span>
-                    </div>
-                    <div className="mt-2 text-gray-400"># Check if Docker socket is accessible</div>
                   </div>
                 </CardContent>
               </Card>
@@ -834,12 +763,6 @@ export default function Home() {
                 <CardContent>
                   <div className="bg-black rounded-md p-4 text-green-400 font-mono text-sm">
                     <div className="flex">
-                      <span className="text-blue-400 mr-2">$</span>
-                      <span>./cdk run k8s-exploit</span>
-                    </div>
-                    <div className="mt-2 text-gray-400"># Attempt to exploit Kubernetes vulnerabilities</div>
-
-                    <div className="flex mt-4">
                       <span className="text-blue-400 mr-2">$</span>
                       <span>./cdk run k8s-backdoor-daemonset</span>
                     </div>
@@ -1006,18 +929,20 @@ export default function Home() {
             <div className="mx-auto max-w-4xl mt-8">
               <h3 className="text-xl font-semibold mb-6 text-center">{t.contributors.maintainers}</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <Link href="https://github.com/neargle" target="_blank" rel="noreferrer">
+                  <div className="flex flex-col items-center">
+                    <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                      <Users className="h-12 w-12 text-primary" />
+                    </div>
+                    <h4 className="font-medium">Neargle</h4>
+                    <p className="text-sm text-muted-foreground">Project Lead</p>
+                  </div>
+                </Link>
                 <div className="flex flex-col items-center">
                   <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-2">
                     <Users className="h-12 w-12 text-primary" />
                   </div>
-                  <h4 className="font-medium">Neargle</h4>
-                  <p className="text-sm text-muted-foreground">Project Lead</p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-2">
-                    <Users className="h-12 w-12 text-primary" />
-                  </div>
-                  <h4 className="font-medium">Dawu</h4>
+                  <h4 className="font-medium">Cdxy</h4>
                   <p className="text-sm text-muted-foreground">Core Developer</p>
                 </div>
                 <div className="flex flex-col items-center">
