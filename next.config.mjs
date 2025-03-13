@@ -7,6 +7,12 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/cdk-homepage',  // 设置基础路径
+  assetPrefix: '/cdk-homepage',  // 设置资产前缀
+  images: {
+    unoptimized: true  // 对于静态导出，需要禁用图片优化
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },

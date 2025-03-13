@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next export",
     "deploy": "next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy, v0-project, all code developed by AI\" && git subtree push --prefix out ssh gh-pages"
   },
   "dependencies": {
