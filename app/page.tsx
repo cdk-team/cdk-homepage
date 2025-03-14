@@ -943,7 +943,7 @@ export default function Home() {
                     <Users className="h-12 w-12 text-primary" />
                   </div>
                   <h4 className="font-medium">Cdxy</h4>
-                  <p className="text-sm text-muted-foreground">Core Developer</p>
+                  <p className="text-sm text-muted-foreground">Project Lead</p>
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mb-2">
